@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+
+# Local/generated Word artifacts
+work/
+~$*.docx
+*_mathtype.docx
+*_mathtype_test.docx
+*.tmp.docx
+
+# Local environment
+.env
+.env.*
+!.env.example

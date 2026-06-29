@@ -1,0 +1,68 @@
+# Codex Formula Conversion
+
+Author: Luo Qiang, Jimei University
+
+Convert bare Markdown variables into Word native equations (OMML), then optionally batch-convert OMML equations into MathType OLE objects.
+
+## What It Does
+
+- Finds bare variables in Markdown, such as `P_sc,k`, `a_k in [0,1]`, `eta_dc`, `alpha`.
+- Guides conversion into standard LaTeX.
+- Uses Pandoc to generate Word native OMML equations.
+- Optionally calls MathType's Word macro to convert all OMML equations into MathType OLE objects.
+
+Default output is Word native OMML. MathType conversion is optional and should only run when explicitly needed.
+
+## Requirements
+
+Core Markdown to Word workflow:
+
+- Pandoc
+- Microsoft Word or another `.docx` viewer for checking output
+
+Optional MathType workflow:
+
+- Windows
+- Microsoft Word
+- MathType installed as Word add-in
+- Python 3.9+
+- `pywin32`
+
+Install Python dependency:
+
+```powershell
+pip install -r requirements.txt
+```
+
+## MathType Conversion
+
+Check MathType:
+
+```powershell
+python .\scripts\convert_omml_to_mathtype.py --check
+```
+
+Convert:
+
+```powershell
+python .\scripts\convert_omml_to_mathtype.py "input.docx" "output_mathtype.docx"
+```
+
+Success criteria:
+
+```text
+Remaining OMML: 0
+Output OLE objects: <same as initial OMML count>
+Output Equation.DSMT4 markers: <same as initial OMML count>
+```
+
+## Important Notes
+
+- Do not hand-build low-quality OMML for production. MathType may convert unknown nodes into `?`.
+- Recommended route: standard LaTeX -> Pandoc/Word OMML -> MathType conversion.
+- For Windows paths with Chinese characters, first copy the file to an ASCII path, then run Python tools.
+- Do not commit real papers, generated `.docx` files, `~$*.docx` lock files, or `__pycache__/`.
+
+## License
+
+Apache License 2.0. See [LICENSE](LICENSE).
