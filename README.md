@@ -56,6 +56,12 @@ Output OLE objects: <same as initial OMML count>
 Output Equation.DSMT4 markers: <same as initial OMML count>
 ```
 
+## Reference Result
+
+The screenshot below shows Pandoc-generated OMML equations converted into MathType OLE objects and opened in MathType:
+
+![MathType conversion reference](assets/mathtype-conversion-reference.png)
+
 ## Important Notes
 
 - Do not hand-build low-quality OMML for production. MathType may convert unknown nodes into `?`.
