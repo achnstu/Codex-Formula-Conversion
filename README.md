@@ -56,6 +56,27 @@ Output OLE objects: <same as initial OMML count>
 Output Equation.DSMT4 markers: <same as initial OMML count>
 ```
 
+### Fix: "No equations were found and/or updated"
+
+If MathType batch conversion reports "No equations were found and/or updated"
+while the document does contain Word native OMML equations, the issue may be
+caused by MathType's `OMML2MML.XSL` conversion file.
+
+Reference:
+[CSDN troubleshooting note](https://blog.csdn.net/Stranger_No8/article/details/160775351).
+
+Fix:
+
+1. Close Microsoft Word and MathType.
+2. Back up the original `OMML2MML.XSL` file from the MathType installation
+   directory.
+3. Replace it with the uploaded file:
+   [`assets/OMML2MML.XSL`](assets/OMML2MML.XSL).
+4. Reopen Word and run MathType batch conversion again.
+
+The replacement `OMML2MML.XSL` file has been uploaded to this repository and
+can be downloaded directly.
+
 ## Reference Result
 
 The screenshot below shows Pandoc-generated OMML equations converted into MathType OLE objects and opened in MathType:
