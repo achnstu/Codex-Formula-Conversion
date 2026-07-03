@@ -67,12 +67,14 @@ Reference:
 
 Fix:
 
-1. Close Microsoft Word and MathType.
-2. Back up the original `OMML2MML.XSL` file from the MathType installation
-   directory.
-3. Replace it with the uploaded file:
-   [`assets/OMML2MML.XSL`](assets/OMML2MML.XSL).
-4. Reopen Word and run MathType batch conversion again.
+1. Locate the Microsoft Office installation directory that contains Word's
+   `WINWORD.EXE`, for example:
+   `C:\Program Files\Microsoft Office\root\Office16`.
+2. In that same Office directory, replace `OMML2MML.XSL` with the uploaded
+   file: [`assets/OMML2MML.XSL`](assets/OMML2MML.XSL).
+3. Open the Word shortcut properties and set **Start in** to the Office
+   directory from step 1.
+4. Start Word from that shortcut, then run MathType batch conversion again.
 
 The replacement `OMML2MML.XSL` file has been uploaded to this repository and
 can be downloaded directly.
